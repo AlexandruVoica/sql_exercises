@@ -30,3 +30,11 @@ create table grades (
 
 insert into grades (id, studentId, courseId, grade)
 values (1,1,1,8),(2,1,2,9),(3,2,1,7),(4,2,2,9);
+
+-- Solution
+select s.name, avg(g.grade) as average
+from students s
+inner join grades g
+on s.id = g.studentId
+group by g.studentId
+having average > 8;
